@@ -20,19 +20,19 @@
         <property name="testWhileIdle" value="true"/>
     </bean>
 
-    <bean id="hubbleWriteDataSource" parent="abstractPoolDatatSource">
+    <bean id="toolDataSource" parent="abstractPoolDatatSource">
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-    <bean id="sqlSessionFactoryHubbleWrite" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="hubbleWriteDataSource"/>
+    <bean id="sqlSessionFactoryTool" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="toolDataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
 
-    <bean id="sqlSessionHubbleWrite" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg index="0" ref="sqlSessionFactoryHubbleWrite"/>
+    <bean id="sqlSessionTool" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactoryTool"/>
     </bean>
 
 </beans>
