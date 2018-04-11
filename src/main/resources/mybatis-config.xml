@@ -2,19 +2,15 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
-
 <configuration>
 
     <settings>
+        <setting name="cacheEnabled" value="false"/>
+        <setting name="defaultStatementTimeout" value="3000"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
         <setting name="useGeneratedKeys" value="true"/>
     </settings>
-
     <typeAliases>
-        <typeAlias type="com.qunar.mobile.model.ParamBean" alias="ParamBean"/>
+        <package name="com.xx.qa.model"/>
     </typeAliases>
-
-    <mappers>
-        <mapper resource="mapper/SpiderShareMapper.xml"/>
-    </mappers>
-
 </configuration>

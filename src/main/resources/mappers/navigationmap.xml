@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--每个mapper实现entity与db的映射-->
+<mapper namespace="index">
+    <!--实体类和DB之间如果字段名字不一致，可以再次做映射-->
+    <resultMap id="naviMap" type="com.xx.qa.model.NaviModel">
+        <id property="id" column="id"></id>
+        <result property="navigationName" column="navigation_name"></result>
+        <result property="navigationUrl" column="navigation_url"></result>
+    </resultMap>
+
+    <!--实现函数：获取值班人信息-->
+    <select id="getNaviInfo" resultMap="naviMap">
+        <![CDATA[
+
+    		SELECT id,navigation_name,navigation_url FROM newhqa_navigation ORDER BY id
+
+        ]]>
+    </select>
+</mapper>
